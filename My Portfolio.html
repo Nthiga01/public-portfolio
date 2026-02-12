@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nthiga Brian · Business Analyst Portfolio</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + Space Grotesk -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    /* LIGHT MODE (default) */
+    :root {
+      --bg-body: #f6f9fc;
+      --bg-container: white;
+      --text-primary: #1e293b;
+      --text-soft: #2c3e50;
+      --border-light: #eef2f6;
+      --card-bg: #f5faff;
+      --badge-tech-bg: #e6f0fa;
+      --badge-tech-border: #c0d9e8;
+      --badge-soft-bg: #faf3e0;
+      --badge-soft-border: #e6d7b4;
+      --accent-deep: #0a2c3d;
+      --accent-teal: #2a9d8f;
+      --accent-teal-light: #a5d8dd;
+      --accent-darkteal: #1e6d7a;
+      --summary-bg: linear-gradient(97deg, #f9fcff 0%, #f1f7fd 100%);
+      --shadow-sm: 0 4px 10px rgba(0,0,0,0.02);
+      --ref-bg: #f8fafc;
+      --project-bg: #f5faff;
+      --cert-bg: #ecf3fa;
+    }
+
+    /* DARK MODE */
+    body.dark-mode {
+      --bg-body: #0b1a1f;
+      --bg-container: #1c2c33;
+      --text-primary: #e2eef1;
+      --text-soft: #cbd8dc;
+      --border-light: #2f4a52;
+      --card-bg: #223b44;
+      --badge-tech-bg: #1d4552;
+      --badge-tech-border: #2e6a78;
+      --badge-soft-bg: #3a423b;
+      --badge-soft-border: #5e6a5a;
+      --accent-deep: #c4e6e6;
+      --accent-teal: #6fc2b0;
+      --accent-teal-light: #308080;
+      --accent-darkteal: #8dd4cf;
+      --summary-bg: linear-gradient(97deg, #1a333b 0%, #132e36 100%);
+      --shadow-sm: 0 8px 16px rgba(0,0,0,0.4);
+      --ref-bg: #1f3e47;
+      --project-bg: #1e3f4a;
+      --cert-bg: #1d414b;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background-color: var(--bg-container);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,20,40,0.12);
+      padding: 2.5rem 2.2rem;
+      transition: background-color 0.2s;
+    }
+
+    /* dark mode toggle */
+    .dark-toggle {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+    }
+    .toggle-btn {
+      background: var(--badge-tech-bg);
+      border: 1.5px solid var(--badge-tech-border);
+      color: var(--text-primary);
+      padding: 0.5rem 1.3rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.15s;
+    }
+    .toggle-btn i {
+      color: var(--accent-teal);
+    }
+    .toggle-btn:hover {
+      background: var(--accent-teal);
+      color: white;
+      border-color: var(--accent-teal);
+    }
+    .toggle-btn:hover i {
+      color: white;
+    }
+
+    /* header / top bar */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 1.5rem;
+    }
+
+    .name-title h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent-deep);
+      margin-bottom: 0.2rem;
+    }
+
+    .name-title .badge {
+      background: var(--badge-tech-bg);
+      color: var(--accent-darkteal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      border: 1px solid var(--badge-tech-border);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      background: var(--badge-tech-bg);
+      padding: 1rem 1.8rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--badge-tech-border);
+    }
+
+    .contact-info i {
+      margin-right: 8px;
+      color: var(--accent-teal);
+      width: 16px;
+    }
+
+    .contact-info span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .contact-info a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+      color: var(--accent-teal);
+    }
+
+    /* get in touch button */
+    .get-in-touch-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+    .get-in-touch-btn {
+      background: var(--accent-teal);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: 0.2s;
+      box-shadow: 0 8px 18px rgba(42,157,143,0.2);
+    }
+    .get-in-touch-btn i {
+      color: white;
+      font-size: 1.1rem;
+    }
+    .get-in-touch-btn:hover {
+      background: #1e7b6e;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(42,157,143,0.3);
+    }
+
+    /* contact panel – inline dropdown */
+    .contact-panel {
+      display: none;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 1.2rem 2rem;
+      margin-bottom: 1.8rem;
+      border-left: 8px solid var(--accent-teal);
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      border: 1px solid var(--badge-tech-border);
+    }
+    .contact-panel.show {
+      display: flex;
+    }
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .contact-option a {
+      text-decoration: none;
+      color: var(--text-primary);
+      background: var(--bg-container);
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid var(--badge-tech-border);
+      transition: 0.1s;
+    }
+    .contact-option a:hover {
+      background: var(--accent-teal);
+      color: white;
+      border-color: var(--accent-teal);
+    }
+    .contact-option i {
+      color: var(--accent-teal);
+      font-size: 1.2rem;
+    }
+
+    /* summary */
+    .summary {
+      background: var(--summary-bg);
+      padding: 2rem 2.2rem;
+      border-radius: 24px;
+      margin-bottom: 2.5rem;
+      border-left: 8px solid var(--accent-teal);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .summary p {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      max-width: 90%;
+    }
+
+    /* 2-col layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      border-bottom: 4px solid var(--accent-teal-light);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title i {
+      color: var(--accent-teal);
+      font-size: 1.3rem;
+    }
+
+    .exp-item {
+      margin-bottom: 2rem;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-role {
+      font-weight: 700;
+      font-size: 1.16rem;
+      color: var(--accent-darkteal);
+    }
+
+    .exp-company {
+      font-weight: 600;
+      color: var(--text-soft);
+    }
+
+    .exp-date {
+      font-size: 0.85rem;
+      background: var(--badge-tech-bg);
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      color: var(--accent-darkteal);
+    }
+
+    .exp-desc {
+      margin-left: 0.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent-teal-light);
+    }
+
+    .exp-desc ul {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .exp-desc li {
+      margin-bottom: 0.5rem;
+      font-size: 0.96rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .exp-desc li i {
+      color: var(--accent-teal);
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      width: 14px;
+    }
+
+    .achievement-badge {
+      background: var(--badge-soft-bg);
+      color: var(--accent-darkteal);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0.4rem 0 0.2rem;
+      border-left: 4px solid var(--accent-teal);
+    }
+
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .skill-tag {
+      background: var(--bg-container);
+      border: 1.5px solid var(--badge-tech-border);
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: 0.1s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .skill-tag i {
+      margin-right: 6px;
+      color: var(--accent-teal);
+      font-size: 0.8rem;
+    }
+
+    .skill-tag:hover {
+      background: var(--accent-darkteal);
+      color: white;
+      border-color: var(--accent-darkteal);
+    }
+
+    .skill-tag:hover i {
+      color: white;
+    }
+
+    .soft-skill {
+      background: var(--badge-soft-bg);
+      border-color: var(--badge-soft-border);
+      color: var(--text-primary);
+    }
+
+    .project-card {
+      background: var(--project-bg);
+      padding: 1.3rem 1.4rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--badge-tech-border);
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent-teal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    .cert-item {
+      background: var(--cert-bg);
+      border-radius: 30px;
+      padding: 0.25rem 1rem 0.25rem 0.8rem;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text-primary);
+      font-weight: 500;
+      border: 1px solid var(--badge-tech-border);
+    }
+    .cert-item i {
+      color: var(--accent-teal);
+    }
+    /* hyperlinked certificates */
+    .cert-item a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .cert-item a:hover {
+      text-decoration: underline;
+      color: var(--accent-darkteal);
+    }
+
+    .lang-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .lang {
+      background: var(--badge-tech-bg);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: var(--accent-darkteal);
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .ref-card {
+      background: var(--ref-bg);
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      border-left: 6px solid var(--accent-teal);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      border: 1px solid var(--badge-tech-border);
+    }
+
+    .ref-name {
+      font-weight: 700;
+      color: var(--accent-teal);
+    }
+
+    .footer-note {
+      margin-top: 2.8rem;
+      border-top: 2px dashed var(--accent-teal-light);
+      padding-top: 1.5rem;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .container { padding: 1.5rem; }
+      .two-col { grid-template-columns: 1fr; }
+      .top-bar { flex-direction: column; align-items: start; gap: 1rem; }
+      .contact-info { width: 100%; justify-content: space-around; }
+    }
+    @media (max-width: 550px) {
+      .ref-grid { grid-template-columns: 1fr; }
+      .summary p { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Dark Mode Toggle -->
+  <div class="dark-toggle">
+    <button class="toggle-btn" id="darkModeToggle">
+      <i class="fas fa-moon"></i> Dark mode
+    </button>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <div class="top-bar">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div style="width:48px; height:48px; background: linear-gradient(145deg, #1f6c78, #1a5c66); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.6rem;">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="name-title">
+        <h1>Nthiga Brian</h1>
+        <span class="badge"><i class="fas fa-briefcase"></i> Business Analyst · ERP & Agile</span>
+      </div>
+    </div>
+    <div class="contact-info">
+      <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+      <span id="phone-header"><i class="fas fa-phone-alt"></i> (+254) 799 247 956</span>
+      <span id="email-header"><i class="fas fa-envelope"></i> bmurithi979@gmail.com</span>
+      <span id="linkedin-header"><a href="https://www.linkedin.com/in/brian-nthiga-03a35b12a" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></span>
+    </div>
+  </div>
+
+  <!-- ========== GET IN TOUCH BUTTON ========== -->
+  <div class="get-in-touch-wrapper">
+    <button class="get-in-touch-btn" id="getInTouchBtn">
+      <i class="fas fa-handshake"></i> Get in touch
+    </button>
+  </div>
+
+  <!-- ========== CONTACT PANEL (hidden by default) ========== -->
+  <div id="contactPanel" class="contact-panel">
+    <div class="contact-option">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:bmurithi979@gmail.com">Email (bmurithi979)</a>
+    </div>
+    <div class="contact-option">
+      <i class="fas fa-phone-alt"></i>
+      <a href="tel:+254799247956">Call: +254 799 247 956</a>
+    </div>
+    <div class="contact-option">
+      <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/in/brian-nthiga-03a35b12a" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+    </div>
+    <div style="margin-left: auto;">
+      <i class="fas fa-times-circle" style="cursor: pointer; color: var(--accent-teal);" id="closePanel"></i>
+    </div>
+  </div>
+
+  <!-- ========== PROFESSIONAL SUMMARY ========== -->
+  <div class="summary">
+    <h2><i class="fas fa-user-check"></i> Professional Summary</h2>
+    <p>IT graduate and Business Analyst with expertise in testing, updating, and designing features for ERP products and solutions. Having also worked as a Customer Success Engineer and Technical Support Engineer, I bring a strong combination of technical, analytical, and problem-solving skills to streamline operations and achieve organizational goals.</p>
+  </div>
+
+  <!-- ========== 2 COLUMN: EXPERIENCE (LEFT) / SKILLS & CERT (RIGHT) ========= -->
+  <div class="two-col">
+    <!-- LEFT COLUMN: WORK EXPERIENCE (detailed) -->
+    <div>
+      <div class="section-title">
+        <i class="fas fa-briefcase"></i> Experience
+      </div>
+
+      <!-- Abno - Business Analyst -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Business Analyst</span>
+          <span class="exp-date">Jun 2024 – Present</span>
+        </div>
+        <div class="exp-company">Abno Softwares International, Nairobi</div>
+        <div class="exp-desc">
+          <ul>
+            <li><i class="fas fa-circle-check"></i> QA & validation for ERP system improvements; onboarded 100+ clients (data migration, training).</li>
+            <li><i class="fas fa-circle-check"></i> Facilitated UAT for 5 major projects – 100% business requirements met.</li>
+            <li><i class="fas fa-circle-check"></i> User manuals & training guides → 30% drop in post-implementation support.</li>
+            <li><i class="fas fa-circle-check"></i> Analyzed feedback → 15% client satisfaction lift.</li>
+            <li><i class="fas fa-circle-check"></i> Streamlined business/tech communication; led requirements for Intellimis Staff/Client App.</li>
+            <li><i class="fas fa-circle-check"></i> Agile (sprint backlog) → 10% faster product increment delivery.</li>
+          </ul>
+          <div class="achievement-badge"><i class="fas fa-trophy"></i> 400+ bugs fixed · 60+ developments · 25% system efficiency</div>
+          <div style="margin-top: 8px; font-size: 0.92rem; background: var(--badge-tech-bg); padding: 0.3rem 1rem; border-radius: 20px;">
+            <i class="fas fa-star" style="color: #cd7f32;"></i> <strong>Key achievements:</strong> 4 RRI requests → unlocked millions revenue; product stability ↑; sprint increments optimized by 13%; staff app utilization ↑18%; Jiunge application workflow UX improved.
+          </div>
+        </div>
+      </div>
+
+      <!-- Abno - Customer Success Engineer & System Administrator -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Customer Success Engineer & System Admin</span>
+          <span class="exp-date">Feb 2024 – May 2024</span>
+        </div>
+        <div class="exp-company">Abno Softwares International, Nairobi</div>
+        <div class="exp-desc">
+          <ul>
+            <li><i class="fas fa-circle-check"></i> ERP troubleshooting, bug identification, workflow gaps.</li>
+            <li><i class="fas fa-circle-check"></i> Trained 10+ clients → 30% boost in operational efficiency.</li>
+            <li><i class="fas fa-circle-check"></i> Audit reports to track utilization; documented enhancement requests.</li>
+          </ul>
+          <div class="achievement-badge"><i class="fas fa-award"></i> Client satisfaction ↑20% · comprehensive documentation → support queries ↓25%</div>
+        </div>
+      </div>
+
+      <!-- KMTC Intern -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Intern – Technical Support</span>
+          <span class="exp-date">Jan 2023 – Apr 2023</span>
+        </div>
+        <div class="exp-company">Kenya Medical Training College, Mombasa</div>
+        <div class="exp-desc">
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Support for 500+ students/staff; resolved 90% backlog issues.</li>
+            <li><i class="fas fa-circle-check"></i> OS/software installation, eLearning portal maintenance → utilization ↑25%.</li>
+            <li><i class="fas fa-circle-check"></i> Networking devices configuration → downtime reduced by 15%.</li>
+          </ul>
+          <div class="achievement-badge">⏱️ Lab renovation: 30→12 days · eLearning portal ↑28% · 90% backlog fixed</div>
+        </div>
+      </div>
+
+      <!-- 254TechHub + TELUS -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Technical Support (Locum)</span>
+          <span class="exp-date">Mar 2020 – Nov 2022</span>
+        </div>
+        <div class="exp-company">254TechHub, Nairobi</div>
+        <div class="exp-desc">
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Remote support, feedback collection, client check-ins.</li>
+            <li><i class="fas fa-circle-check"></i> Zendesk records → analysis & improvement areas.</li>
+          </ul>
+          <div class="achievement-badge">📈 client happiness ↑26% · digital product adoption ↑30% (training)</div>
+        </div>
+        <div style="margin-top: 1rem;">
+          <div class="exp-header">
+            <span class="exp-role">Photo Annotation (Project Sonic)</span>
+            <span class="exp-date">May 2023 – Jul 2023</span>
+          </div>
+          <div class="exp-company">TELUS International, Remote</div>
+          <div class="exp-desc">
+            <ul><li><i class="fas fa-circle-check"></i> Image labeling & classification for AI model training, enhancing object recognition accuracy.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: SKILLS, PROJECTS, CERTIFICATIONS, LANGUAGES -->
+    <div>
+      <!-- SKILLS (technical) -->
+      <div class="section-title">
+        <i class="fas fa-code"></i> Core Skills
+      </div>
+      <div class="skills-cloud">
+        <span class="skill-tag"><i class="fas fa-cubes"></i> ERP Mgmt & Impl.</span>
+        <span class="skill-tag"><i class="fas fa-chart-simple"></i> Data Analysis</span>
+        <span class="skill-tag"><i class="fas fa-vial"></i> UAT & QA</span>
+        <span class="skill-tag"><i class="fas fa-users"></i> Client Onboarding</span>
+        <span class="skill-tag"><i class="fas fa-file-alt"></i> Tech Documentation</span>
+        <span class="skill-tag"><i class="fas fa-bug"></i> Jira · Bug Tracking</span>
+        <span class="skill-tag"><i class="fas fa-code-branch"></i> SDLC / Agile Scrum</span>
+        <span class="skill-tag"><i class="fas fa-chart-pie"></i> Power BI (Beginner)</span>
+        <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+        <span class="skill-tag"><i class="fas fa-file-excel"></i> Advanced Excel</span>
+        <span class="skill-tag"><i class="fas fa-envelope-open-text"></i> Email Automation</span>
+        <span class="skill-tag"><i class="fas fa-plug"></i> API integration</span>
+        <span class="skill-tag"><i class="fas fa-chart-scatter"></i> Data Viz</span>
+        <span class="skill-tag"><i class="fas fa-headset"></i> CRM (Zendesk)</span>
+        <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Kotlin, C, VB, Pascal, HTML</span>
+      </div>
+
+      <!-- SOFT SKILLS -->
+      <div style="margin: 1.2rem 0 0.5rem;">
+        <span style="font-weight: 700; color: var(--accent-teal);"><i class="fas fa-heart"></i> Soft Skills</span>
+      </div>
+      <div class="skills-cloud">
+        <span class="skill-tag soft-skill">Analytical</span>
+        <span class="skill-tag soft-skill">Communication</span>
+        <span class="skill-tag soft-skill">Teamwork & collaboration</span>
+        <span class="skill-tag soft-skill">Stakeholder Management</span>
+        <span class="skill-tag soft-skill">Adaptability & Flexibility</span>
+      </div>
+
+      <!-- PROJECTS: INTELLIMIS & GENESIS -->
+      <div class="section-title" style="margin-top: 2rem;">
+        <i class="fas fa-rocket"></i> Key Projects
+      </div>
+      
+      <div class="project-card">
+        <div class="project-title"><i class="fas fa-microchip"></i> Intellimis ERP</div>
+        <p style="font-size: 0.95rem; margin-top: 8px;">Business Analyst: system stabilization through bug/enhancement documentation. Proactive approach contributed to <strong>28% improvement</strong> in overall system efficiency. Designed & tested Intellimis Staff App & Client App, driving utilization up 18%.</p>
+        <span style="background: var(--accent-teal); color: white; padding: 0.25rem 1rem; border-radius: 30px; font-size: 0.75rem; margin-top: 0.5rem; display: inline-block;"><i class="fas-regular fa-check"></i> 28% efficiency gain</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title"><i class="fas fa-cubes"></i> Genesis ERP</div>
+        <p style="font-size: 0.95rem; margin-top: 8px;">Collaborated closely with product BA – technical documentation & UAT. Delivered product <strong>13 days ahead of schedule</strong>.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title"><i class="fas fa-diagram-project"></i> Jiunge Portal & TVET CDACC</div>
+        <p style="font-size: 0.95rem; margin-top: 5px;">Minor projects: streamlined application workflow, enhanced user satisfaction rate for Jiunge Portal.</p>
+      </div>
+
+      <!-- CERTIFICATIONS – UPDATED with exact links and new AI cert -->
+      <div class="section-title" style="margin-top: 0.8rem;">
+        <i class="fas fa-certificate"></i> Certification
+      </div>
+      <div class="cert-grid">
+        <!-- Elements of AI for Business (new) -->
+        <span class="cert-item"><i class="fas fa-robot"></i> <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fcourses.minnalearn.com%2Fcertificate%2Fen%2Felements-of-ai-for-business%2Fd08aaef8-d6b2-4fae-b877-78184b8a3cd2&urlhash=A8WO&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BXwkbPtyLQxG8Q3nRXrfmVQ%3D%3D" target="_blank" rel="noopener noreferrer">Elements of AI for Business</a></span>
+        <!-- Oracle Certified Foundations Associate -->
+        <span class="cert-item"><i class="fas fa-database"></i> <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=0E21020371434CE20399A19BACFE40FC842FA8316EA4A1E1DA8F5A28E01DB29A" target="_blank" rel="noopener noreferrer">Oracle Certified Foundations Associate</a></span>
+        <!-- Ask Questions to Make Data-Driven Decisions -->
+        <span class="cert-item"><i class="fas fa-question-circle"></i> <a href="https://www.coursera.org/account/accomplishments/records/WLFDZ2SJ2OO5" target="_blank" rel="noopener noreferrer">Ask Questions to Make Data-Driven Decisions</a></span>
+        <!-- Foundations: Data, Data, Everywhere -->
+        <span class="cert-item"><i class="fas fa-layer-group"></i> <a href="https://www.coursera.org/account/accomplishments/records/9TXFDCF4MF7L" target="_blank" rel="noopener noreferrer">Foundations: Data, Everywhere</a></span>
+        <!-- Foundations of Agile Project Management -->
+        <span class="cert-item"><i class="fas fa-agile"></i> <a href="https://www.coursera.org/account/accomplishments/verify/XFV4S7BMOYMD" target="_blank" rel="noopener noreferrer">Foundations of Agile Project Management</a></span>
+        <!-- Process Data from Dirty to Clean -->
+        <span class="cert-item"><i class="fas fa-filter"></i> <a href="https://www.coursera.org/account/accomplishments/verify/51A7KJCQNFHD" target="_blank" rel="noopener noreferrer">Process Data from Dirty to Clean</a></span>
+        <!-- Prepare Data for Exploration -->
+        <span class="cert-item"><i class="fas fa-magnifying-glass-chart"></i> <a href="https://www.coursera.org/account/accomplishments/verify/SPB765KQ30N9" target="_blank" rel="noopener noreferrer">Prepare Data for Exploration</a></span>
+        <!-- Analyze Data to Answer Questions -->
+        <span class="cert-item"><i class="fas fa-check-double"></i> <a href="https://www.coursera.org/account/accomplishments/verify/2VC9X0VF8R4G" target="_blank" rel="noopener noreferrer">Analyze Data to Answer Questions</a></span>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div style="margin-top: 2rem;">
+        <span style="font-weight: 700; color: var(--accent-teal); font-size: 1.1rem;"><i class="fas fa-language"></i> Languages</span>
+        <div class="lang-item">
+          <span class="lang"><i class="fas fa-comment"></i> English (Fluent)</span>
+          <span class="lang"><i class="fas fa-comment"></i> Kiswahili (Fluent)</span>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div style="margin-top: 2rem;">
+        <div class="section-title" style="border-bottom-color: var(--accent-teal-light);">
+          <i class="fas fa-graduation-cap"></i> Education
+        </div>
+        <div style="background: var(--badge-tech-bg); padding: 1rem 1.5rem; border-radius: 20px; border:1px solid var(--badge-tech-border);">
+          <p style="font-weight: 700; color: var(--accent-teal);">Diploma in Information Technology</p>
+          <p>Meru National Polytechnic · Jan 2020 – Dec 2023</p>
+          <p style="margin-top: 0.6rem; font-weight: 500;">Allidina Visham High School — KCSE (2015–2019)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== REFERENCES SECTION ========== -->
+  <div style="margin-top: 1.5rem;">
+    <div class="section-title">
+      <i class="fas fa-user-tie"></i> References
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-name">Meshak Mutinda</div>
+        <div class="ref-title">Supervisor, Abno Softwares International</div>
+        <div style="margin-top: 0.6rem;"><i class="fas fa-phone-alt"></i> 0784922410</div>
+        <div><i class="fas fa-envelope"></i> mmutinda@abnosoftwares.com</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Ian Mbuguah</div>
+        <div class="ref-title">Team Lead, 254TechHub</div>
+        <div><i class="fas fa-phone-alt"></i> 0799235613</div>
+        <div><i class="fas fa-envelope"></i> ianmbuhguah@gmail.com</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Hudson Walukha</div>
+        <div class="ref-title">ICT Manager, KMTC Mombasa</div>
+        <div><i class="fas fa-phone-alt"></i> 0700223600 / 0742641402</div>
+        <div><i class="fas fa-envelope"></i> hwalukha@kmtc.ac.ke</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Lewis Mucee</div>
+        <div class="ref-title">Professor, Meru National Polytechnic</div>
+        <div><i class="fas fa-phone-alt"></i> 0725653899</div>
+        <div><i class="fas fa-envelope"></i> lewismugambi@gmail.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER WITH METRICS ========== -->
+  <div class="footer-note">
+    <i class="fas fa-bolt"></i> 400+ bugs resolved · 60+ developments · RRI unlocked millions · 13% sprint optimization · 18% staff app utilization · 28% system efficiency (Intellimis) · Genesis: 13 days early 
+    <br><span style="display: inline-block; margin-top: 1rem;">📁 Portfolio based on CV – Business Analyst / ERP specialist. All certificates verified with live links.</span>
+  </div>
+</div>
+
+<script>
+  // DARK MODE TOGGLE
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (body.classList.contains('dark-mode')) {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', null);
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark mode';
+    } else {
+      body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'enabled');
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light mode';
+    }
+  });
+
+  // GET IN TOUCH PANEL TOGGLE
+  const getTouchBtn = document.getElementById('getInTouchBtn');
+  const contactPanel = document.getElementById('contactPanel');
+  const closePanel = document.getElementById('closePanel');
+
+  function showPanel() {
+    contactPanel.classList.add('show');
+  }
+  function hidePanel() {
+    contactPanel.classList.remove('show');
+  }
+
+  getTouchBtn.addEventListener('click', showPanel);
+  closePanel.addEventListener('click', hidePanel);
+
+  // header contact clicks also open panel (except LinkedIn which opens directly)
+  document.getElementById('phone-header').addEventListener('click', function(e) {
+    e.preventDefault();
+    showPanel();
+  });
+  document.getElementById('email-header').addEventListener('click', function(e) {
+    e.preventDefault();
+    showPanel();
+  });
+  // LinkedIn header now has direct link, we keep panel optional
+  document.getElementById('linkedin-header').addEventListener('click', function(e) {
+    // allow default to open link, also show panel? we can just open link
+    // we want both? we let the link work, and also optionally show panel? 
+    // To avoid double behavior, we do nothing extra
+  });
+</script>
+
+</body>
+</html>
